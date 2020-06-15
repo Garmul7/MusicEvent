@@ -1,0 +1,9 @@
+.loginCard{
+  display: inline-block;
+  padding: 40px;
+  background: orange;
+  border-radius: 10px;
+  border: 1px black solid;
+  max-width: 500px;
+  text-align: center;
+}
