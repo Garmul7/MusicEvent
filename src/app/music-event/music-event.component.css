@@ -1,0 +1,62 @@
+.gridview{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+}
+
+.musicEventCard {
+  background: orange;
+  border-radius: 10px;
+  border: 1px black solid;
+  max-width: 500px;
+  }
+
+
+.title {
+  text-align: center;
+  border-radius: 100px;
+  padding: 20px;
+  background: darkorange;
+  font-family: Georgia, serif;
+  font-size: 40px;
+  letter-spacing: -4.6px;
+  word-spacing: 0.4px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: normal;
+  text-transform: capitalize;
+}
+.description {
+  font-size:15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.place {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.price {
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.date {
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+.descriptionbox{
+  resize: none;
+  font: normal 1.2em "Fira Sans", serif;
+  background-color: #fff3cc;
+}
+.neweventboxes{
+  margin-left: 10px;
+  display:block;
+  background-color: orange;
+  padding: 10px;
+  border-radius: 30px;
+}

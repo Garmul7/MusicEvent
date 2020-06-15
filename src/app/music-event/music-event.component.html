@@ -1,0 +1,87 @@
+<div class="neweventboxes">
+  This Will Only be visible to admin ---------------------------------------------------------------------------------------------------------
+  <br>
+  <label>Event Name:
+    <input class="descriptionbox" #eventTitle />
+  </label>
+  <br>
+
+
+
+
+  <label> Event Description </label>
+  <br>
+  <textarea class="descriptionbox" rows="7" cols ="100"  #eventDescription>
+  </textarea>
+  <br>
+  <label>Event Country: (possibly change it to list of countries)
+    <input class="descriptionbox" #eventCountry />
+  </label>
+  <label>Event City:
+    <input class="descriptionbox" #eventCity />
+  </label>
+  <br>
+
+  <label>Event Date:
+    <input type = "date" class="descriptionbox" #eventDate />
+  </label>
+  <br>
+  <label>Event Price:
+    <input type = "number" class="descriptionbox"  #eventPrice />
+  </label>
+  <br>
+
+  <button (click)="add(eventTitle.value, eventDescription.value, eventCountry.value, eventCity.value, eventDate.value, eventPrice.value, true, ['']);
+                  eventTitle.value=''; eventDescription.value=''; eventCountry.value=''; eventCity.value=''; eventDate.value=''; eventPrice.value='';">
+    add
+  </button>
+  <br>
+  ------------------------------------------------------------------------------------------------------------------------------------------------------
+</div>
+
+<ul>
+  <div>
+    <label>
+      Sort By:
+    <select class="descriptionbox" name="sorting" id="sorting" #sortingtype>
+      <option value="pricedec">Price Decreasing</option>
+      <option value="priceinc">Price Increasing</option>
+      <option value="datedec">Date Decreasing</option>
+      <option value="dateinc">Date Increasing</option>
+    </select>
+    </label>
+    <label>
+      Min. Price:
+      <input class="descriptionbox" type="number" #minprice />
+    </label>
+    <label>
+      Max. Price:
+      <input class="descriptionbox" type = "number" #maxprice />
+    </label>
+    <label>
+      Start Date:
+      <input class="descriptionbox" type="date" #startdate>
+    </label>
+    <label>
+      End Date:
+      <input class="descriptionbox" type="date" #enddate>
+    </label>
+<button (click)="applySort(sortingtype.value, minprice.valueAsNumber, maxprice.valueAsNumber, startdate.value, enddate.value)"> Apply </button>
+  </div>
+  HERE SORTING / FILTERING THE LIST
+  <div class="gridview">
+
+  <div *ngFor="let musicEvent of filteredEventList" >
+  <div [ngStyle]="musicEvent.eventIsActive==false?{'background-color':'gray'} : {'background-color': 'orange'}"
+       class="musicEventCard">
+  <h1 [ngStyle]="musicEvent.eventIsActive==false?{'background-color':'darkgray'} : {'background-color': 'darkorange'}"class="title">{{musicEvent.eventtitle}} </h1>
+ <p class="description"> {{musicEvent.eventdescription}}</p>
+  <h2 class="place"> Place: {{musicEvent.eventcountry}}, {{musicEvent.eventcity}}</h2>
+    <h3 class="date">  Date: {{musicEvent.eventdate}} </h3>
+    <h3 class="price"> Price: {{musicEvent.eventprice}} </h3>
+    <input style="float: right" type="checkbox" id="eventIsActive" name="eventIsActive" [checked]="musicEvent.eventIsActive" (change)="changeEventActivity(musicEvent)">
+    <label style="float: right" for="eventIsActive"> Active </label>
+  </div>
+  </div>
+</div>
+</ul>
